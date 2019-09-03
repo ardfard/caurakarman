@@ -1,0 +1,66 @@
+name: caurakarman
+version: '0.1.0.0'
+synopsis: To Gather intelligence
+category: Web
+author: Ardin Fardiansyah
+maintainer: fardiansyah.ardin@yahoo.com
+license: MIT
+
+default-extensions:
+- OverloadedStrings
+- NoImplicitPrelude
+- DeriveGeneric
+- GADTs
+- RankNTypes
+- RecordWildCards
+- GeneralizedNewtypeDeriving
+- MultiParamTypeClasses
+- TypeFamilies
+- StandaloneDeriving
+
+dependencies:
+- bytestring
+- http-conduit
+- network-uri
+- protolude
+- mtl
+- hxt
+- HandsomeSoup
+- regex-pcre
+- parallel-io
+- split
+- aeson
+- vector
+- text
+- unordered-containers
+- lens
+- lens-aeson
+- transformers
+- http-client
+- stm
+
+library:
+  source-dirs: src
+  dependencies:
+  - base >=4.7 && <5.0.0.0
+  - HTTP
+
+executables:
+  caurakarman:
+    main: Main.hs
+    source-dirs: app
+    dependencies:
+    - base >=4.7 && <=5.0.0.0
+    - caurakarman
+tests:
+  caurakarman-test:
+    main:                Spec.hs
+    source-dirs:         test
+    dependencies:
+    - caurakarman
+    - hspec
+
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
